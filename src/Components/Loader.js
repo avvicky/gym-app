@@ -7,7 +7,7 @@ const Loader = () => {
     <Stack
       direction="row"
       justifyContent="center"
-      alignItem="center"
+      alignitems="center"
       width="100%"
     >
       <InfinitySpin color='="gray' />

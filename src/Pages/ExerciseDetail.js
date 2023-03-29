@@ -1,56 +1,62 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom/client";
+import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import { exerciseOptions, fetchData } from "../utils/fetchData";
-import Detail from "../Components/Detail";
-import ExerciseVideos from "../Components/ExerciseVideos";
-import SimilarExercises from "../Components/SimilarExercises";
+import {
+  exerciseOptions,
+  youtubeSearchOptions,
+  fetchData,
+} from "../utils/fetchData";
+import Detail from "../components/Detail";
+import ExerciseVideos from "../components/ExerciseVideos";
+import SimilarExercises from "../components/SimilarExercises";
 
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
-
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const exerciseDBUrl =
-        "https://zylalabs.com/api/392/exercise+database+api/1004/exercise+by+id&id=";
+      const exerciseDBUrl = "https://exercisedb.p.rapidapi.com";
 
       const youtubeSearchUrl =
-        "https://zylalabs.com/api/948/youtube+search+api/769/fetch+youtube+videos?q=";
+        "https://youtube-search-and-download.p.rapidapi.com";
 
       const exerciseDetailData = await fetchData(
-        `${exerciseDBUrl}${id}`,
+        `${exerciseDBUrl}/exercises/exercise/${id}`,
         exerciseOptions
       );
       setExerciseDetail(exerciseDetailData);
 
-      const exerciseVideosData = await fetchData(
-        `${youtubeSearchUrl}${exerciseDetailData.name}`,
-        exerciseOptions
-      );
-      setExerciseVideos(exerciseVideosData.contents);
-
       const targetMuscleExerciseData = await fetchData(
-        `https://zylalabs.com/api/392/exercise+database+api/311/list+of+target+muscle&target=${exerciseDetailData.target}`,
+        `https://exercisedb.p.rapidapi.com/exercises/target/${exerciseDetailData.target}`,
         exerciseOptions
       );
 
       setTargetMuscleExercises(targetMuscleExerciseData);
+
+      const equimentExercisesData = await fetchData(
+        `${exerciseDBUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+        exerciseOptions
+      );
+      setEquipmentExercises(equimentExercisesData);
     };
+
+    fetchExercisesData();
   }, [id]);
+
+  if (!exerciseDetail) return <div>No Data</div>;
 
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideos
-        exerciseVideos={exerciseVideos}
-        name={exerciseDetail.name}
+      <SimilarExercises
+        targetMuscleExercises={targetMuscleExercises}
+        equipmentExercises={equipmentExercises}
       />
-      <SimilarExercises targetMuscleExercises={targetMuscleExercises} />
     </Box>
   );
 };

@@ -28,12 +28,12 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://zylalabs.com/api/392/exercise+database+api/313/list+of+all+exercise",
+          "https://exercisedb.p.rapidapi.com/exercises",
           exerciseOptions
         );
       } else {
         exercisesData = await fetchData(
-          `https://zylalabs.com/api/392/exercise+database+api/310/list+exercise+by+body+part&bodypart=${bodyPart}`,
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
           exerciseOptions
         );
       }
@@ -57,7 +57,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           <ExerciseCard key={index} exercise={exercise} />
         ))}
       </Stack>
-      <Stack mt="100px" alignItems="center">
+      <Stack mt="100px" alignitems="center">
         {exercises.length > 9 && (
           <Pagination
             color="standard"

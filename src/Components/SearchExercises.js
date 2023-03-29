@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
-import HorizontalScroolbar from "./HorizontalScroolbar";
+import HorizontalScroolbar from "./HorizontalScrollbar";
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
@@ -10,7 +10,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
-        "https://zylalabs.com/api/392/exercise+database+api/309/list+of+body+parts",
+        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
         exerciseOptions
       );
 
@@ -23,7 +23,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
-        "https://zylalabs.com/api/392/exercise+database+api/313/list+of+all+exercise",
+        "https://exercisedb.p.rapidapi.com/exercises",
         exerciseOptions
       );
       const searchedExercises = exercisesData.filter(
@@ -39,7 +39,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <Stack alignItems="center" mt="37px" jusitifycontent="center" p="20px">
+    <Stack alignitems="center" mt="37px" jusitifycontent="center" p="20px">
       <Typography
         fontWeight={700}
         sx={{

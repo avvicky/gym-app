@@ -6,7 +6,7 @@ import TargetImage from "../assets/icons/target.png";
 import EquipmentImage from "../assets/icons/equipment.png";
 
 const Detail = ({ exerciseDetail }) => {
-  const { bodPart, girUrl, name, target, equipment } = exerciseDetail;
+  const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
   const extraDetail = [
     {
@@ -37,7 +37,7 @@ const Detail = ({ exerciseDetail }) => {
           energy.
         </Typography>
         {extraDetail.map((item) => (
-          <Stack key={item.name} direction="row" gap="24px" alignItems="center">
+          <Stack key={item.name} direction="row" gap="24px" alignitems="center">
             <Button
               sx={{
                 backgroud: "#fff2db",
@@ -48,7 +48,7 @@ const Detail = ({ exerciseDetail }) => {
             >
               <img
                 src={item.icon}
-                alt={bodPart}
+                alt={bodyPart}
                 style={{ width: "50px", height: "50px" }}
               />
             </Button>
