@@ -39,7 +39,12 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <Stack alignitems="center" mt="37px" jusitifycontent="center" p="20px">
+    <Stack
+      sx={{ alignItems: "center" }}
+      mt="37px"
+      jusitifycontent="center"
+      p="20px"
+    >
       <Typography
         fontWeight={700}
         sx={{

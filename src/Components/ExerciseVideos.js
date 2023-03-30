@@ -15,8 +15,8 @@ const ExerciseVideos = ({ ExerciseVideos, name }) => {
       <Stack
         justifyContent="flex-start"
         flexWrap="wrap"
-        alignitems="center"
         sx={{
+          alignitems: "center",
           flexDirection: { lg: "row" },
           gap: { lg: "110px", xs: "0" },
         }}

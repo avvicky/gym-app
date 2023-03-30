@@ -7,10 +7,10 @@ const Loader = () => {
     <Stack
       direction="row"
       justifyContent="center"
-      alignitems="center"
       width="100%"
+      sx={{ alignItems: "center" }}
     >
-      <InfinitySpin color='="gray' />
+      <InfinitySpin color="gray" />
     </Stack>
   );
 };

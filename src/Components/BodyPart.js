@@ -7,7 +7,6 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
   return (
     <Stack
       type="button"
-      alignitems="center"
       justifyContent="center"
       className="bodyPart-card"
       sx={{
@@ -18,6 +17,7 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
         height: "280px",
         cursor: "pointer",
         gap: "47px",
+        alignItems: "center",
       }}
       onClick={() => {
         setBodyPart(item);
