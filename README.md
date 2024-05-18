@@ -10,7 +10,7 @@ Welcome to Gym App! This ReactJS-based solution empowers users to seamlessly sea
 
 ## Deployment
 
-Gym App is deployed and accessible online. You can try it out [here](https://gymapp-avvicky.netlify.app/).
+Gym App is deployed and accessible online. You can try it out [here](https://gym-app-xi-six.vercel.app/).
 
 ## Installation
 
