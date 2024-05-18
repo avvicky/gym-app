@@ -8,6 +8,8 @@ import Detail from "../Components/Detail";
 import SimilarExercises from "../Components/SimilarExercises";
 import ExerciseInstructions from "../Components/ExerciseInstructions";
 
+import Loader from "../Components/Loader";
+
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   // const [exerciseVideos, setExerciseVideos] = useState([]);
@@ -17,6 +19,7 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     const fetchExercisesData = async () => {
+      setExerciseDetail(null);
       const exerciseDBUrl = "https://exercisedb.p.rapidapi.com";
 
       // const youtubeSearchUrl =
@@ -45,7 +48,7 @@ const ExerciseDetail = () => {
     fetchExercisesData();
   }, [id]);
 
-  if (!exerciseDetail) return <div>No Data</div>;
+  if (!exerciseDetail) return <Loader />;
 
   return (
     <Box>

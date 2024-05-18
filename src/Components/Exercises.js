@@ -21,19 +21,19 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
     window.scrollTo({ top: 1800, behavior: "smooth" });
   };
-
+  
   useEffect(() => {
     const fetchExerciseData = async () => {
       let exercisesData = [];
 
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises?limit=1000  ",
+          "https://exercisedb.p.rapidapi.com/exercises?limit=5000  ",
           exerciseOptions
         );
       } else {
         exercisesData = await fetchData(
-          `'https://exercisedb.p.rapidapi.com/exercises/bodyPartList/${bodyPart}`,
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=5000`,
           exerciseOptions
         );
       }

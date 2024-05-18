@@ -8,6 +8,7 @@ const Loader = () => {
       direction="row"
       justifyContent="center"
       width="100%"
+      height="100%"
       sx={{ alignItems: "center" }}
     >
       <InfinitySpin color="gray" />

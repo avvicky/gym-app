@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography, Stack, Button } from "@mui/material";
 
 import BodyPartImage from "../assets/icons/body-part.png";
 import TargetImage from "../assets/icons/target.png";
 import EquipmentImage from "../assets/icons/equipment.png";
+
+import Loader from "./Loader";
 
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
@@ -30,7 +32,9 @@ const Detail = ({ exerciseDetail }) => {
     >
       <img src={gifUrl} alt={name} loading="lazzy" className="detail-image" />
       <Stack sx={{ gap: { lg: "35px", xs: "25px" } }}>
-        <Typography variant="h3">{name}</Typography>
+        <Typography textTransform="capitalize" variant="h3">
+          {name}
+        </Typography>
         <Typography variant="h6">
           Exercises keep you strong. {name} is one of the best exercises to
           target your {target}. It will help you imporve your mood and gain
