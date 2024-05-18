@@ -9,7 +9,7 @@ const Footer = () => {
       <Stack gap="40px" sx={{ alignItems: "center" }} px="40px" pt="24px">
         <img src={Logo} alt="logo" width="200px" height="40px" />
         <Typography>
-          Devloped By
+          Devloped By{" "}
           <a
             href="https://www.linkedin.com/in/vignesh-mernstack/"
             className="footer-img"

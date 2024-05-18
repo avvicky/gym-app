@@ -41,7 +41,7 @@ const Detail = ({ exerciseDetail }) => {
             key={item.name}
             direction="row"
             gap="24px"
-            sx={{ alignitems: "center" }}
+            sx={{ alignItems: "center" }}
           >
             <Button
               sx={{

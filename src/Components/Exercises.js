@@ -28,15 +28,16 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
+          "https://exercisedb.p.rapidapi.com/exercises?limit=1000  ",
           exerciseOptions
         );
       } else {
         exercisesData = await fetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          `'https://exercisedb.p.rapidapi.com/exercises/bodyPartList/${bodyPart}`,
           exerciseOptions
         );
       }
+      console.log(exercisesData);
       setExercises(exercisesData);
     };
 

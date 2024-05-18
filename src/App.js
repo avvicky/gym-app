@@ -2,11 +2,11 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 import ExerciseDetail from "./Pages/ExerciseDetail";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import "./App.css";
-
+  
 const App = () => {
   return (
     <div>
